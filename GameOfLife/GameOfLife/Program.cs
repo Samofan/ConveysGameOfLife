@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +11,14 @@ namespace GameOfLife
     {
         static void Main(string[] args)
         {
-            Utils.GenerateFields(9);
+            Field[] test = Field.GenerateFields(30);
+
+            for (int i = 0; i < test.Length; i++)
+            {
+                Console.WriteLine(test[i].GetStatus());
+            }
+
+            Console.ReadKey();   
         }
     }
 }
