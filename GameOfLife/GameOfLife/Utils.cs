@@ -67,11 +67,10 @@ namespace GameOfLife
             int length = fieldArray.Length;
             int aliveNeighbours = 0;
             int sqrt = Convert.ToInt32(Math.Sqrt(length));
-
-            //für jede zelle
+            
             for(int i = 0; i < length; i++)
             {
-                //0 bis 28 ausschließen
+                
                 if(i > 29 && i < 800)
                 {
                     if (fieldArray[i - sqrt].GetStatus())
@@ -107,7 +106,7 @@ namespace GameOfLife
                         aliveNeighbours++;
                     }
 
-                    //wenn die betrachtete zelle am leben ist
+                    
                     if (fieldArray[i].GetStatus())
                     {
                         if (aliveNeighbours != 2 || aliveNeighbours != 3)
