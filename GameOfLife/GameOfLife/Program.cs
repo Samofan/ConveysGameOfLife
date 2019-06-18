@@ -1,4 +1,5 @@
-using System;
+﻿using System;
+using System.Timers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,16 +10,31 @@ namespace GameOfLife
 
     class Program
     {
+        static Field[] testArray;
+        static Timer timer;
+
         static void Main(string[] args)
         {
-            Field[] test = Field.GenerateFields(30);
+            Field[] fieldArray = Field.GenerateFields(841);
+            Utils.PrintFields(fieldArray);
+            testArray = fieldArray;
+            SetTimer();
+            timer.Start();
+            Console.ReadKey();
 
-            for (int i = 0; i < test.Length; i++)
-            {
-                Console.WriteLine(test[i].GetStatus());
-            }
+        }
 
-            Console.ReadKey();   
+        private static void SetTimer()
+        {
+            timer = new Timer(1000);
+            timer.Elapsed += OnTimedEvent;
+            timer.AutoReset = true;
+            timer.Enabled =  true;
+        }
+
+        private static void OnTimedEvent(object sender, ElapsedEventArgs e)
+        {
+            Utils.NextRound(testArray);
         }
     }
 }
