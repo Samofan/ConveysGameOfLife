@@ -9,6 +9,7 @@ namespace GameOfLife
     class Field
     {
         Boolean isAlive;
+        public static Field[] fieldArray;
 
         public Field(Boolean living)
         {

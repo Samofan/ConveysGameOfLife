@@ -10,18 +10,16 @@ namespace GameOfLife
 
     class Program
     {
-        static Field[] testArray;
-        static Timer timer;
+        public static Timer timer;
 
         static void Main(string[] args)
         {
             Field[] fieldArray = Field.GenerateFields(841);
+            Field.fieldArray = fieldArray;
             Utils.PrintFields(fieldArray);
-            testArray = fieldArray;
             SetTimer();
             timer.Start();
             Console.ReadKey();
-
         }
 
         private static void SetTimer()
@@ -34,7 +32,8 @@ namespace GameOfLife
 
         private static void OnTimedEvent(object sender, ElapsedEventArgs e)
         {
-            Utils.NextRound(testArray);
+
+            Utils.NextRound(Field.fieldArray);
         }
     }
 }
