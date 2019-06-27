@@ -127,7 +127,7 @@ namespace GameOfLife
 
             String gameOverPlain = "Game Over";
 
-            Console.WriteLine(gameOverPlain);
+            Console.WriteLine(gameOver);
         }
 
         //******************************************
